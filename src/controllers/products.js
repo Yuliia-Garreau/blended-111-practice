@@ -1,5 +1,6 @@
 import createHttpError from 'http-errors';
 import {
+  deleteProduct,
   getAllProducts,
   getProductsById,
   postProduct,
@@ -50,4 +51,14 @@ export const patchProductController = async (req, res) => {
     message: 'Successfully patched a product!',
     data,
   });
+};
+
+export const deleteProductController = async (req, res) => {
+  const { id } = req.params;
+  const product = await deleteProduct(id);
+
+  if (!product) {
+    throw createHttpError(404, 'Product not found');
+  }
+  res.status(204).send();
 };

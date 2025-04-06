@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import {
+  deleteProductController,
   getAllProductsController,
   getProductsByIdController,
   patchProductController,
@@ -14,5 +15,7 @@ router.get('/:id', ctrlWrapper(getProductsByIdController));
 router.post('/', ctrlWrapper(postProductController));
 
 router.patch('/:id', ctrlWrapper(patchProductController));
+
+router.delete('/:id', ctrlWrapper(deleteProductController));
 
 export default router;
