@@ -24,14 +24,9 @@ responses:
               type: string
               example: Successfully found products!
             data:
-              type: object
-              required:
-                - data
-              properties:
-                data:
-                  type: array
-                  items:
-                    $ref: '../components/schemas/product.yaml'
+              type: array
+              items:
+                $ref: '../components/schemas/product.yaml'
   '401':
     $ref: '../components/responses/401.yaml'
   '500':
