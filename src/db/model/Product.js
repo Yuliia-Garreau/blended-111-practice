@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import {categoryList} from '../../constants/index.js';
+import { categoryList } from '../../constants/index.js';
 
 const productSchema = new Schema(
   {
@@ -20,6 +20,7 @@ const productSchema = new Schema(
     description: {
       type: String,
     },
+    userId: { type: Schema.Types.ObjectId, required: true, ref: 'User' },
   },
   {
     timestamps: true,
