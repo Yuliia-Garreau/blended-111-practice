@@ -1,6 +1,11 @@
 import { ONE_DAY } from '../constants/index.js';
 import { UserCollection } from '../db/model/User.js';
-import { loginUser, logoutUser, registerUser } from '../services/auth.js';
+import {
+  loginUser,
+  logoutUser,
+  registerUser,
+  requestResetToken,
+} from '../services/auth.js';
 
 export const registerController = async (req, res) => {
   const user = await registerUser(req.body);
@@ -39,4 +44,13 @@ export const logoutUserController = async (req, res) => {
   res.clearCookie('refreshToken');
   res.clearCookie('sessionId');
   res.status(204).send();
+};
+
+export const requestResetEmailController = async (req, res) => {
+  await requestResetToken(req.body.email);
+  res.json({
+    message: 'Reset password email was successfully sent!',
+    status: 200,
+    data: {},
+  });
 };
