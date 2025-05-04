@@ -1,7 +1,7 @@
 tags:
   - Products
 summary: Get products by id
-operationId: getProducts
+operationId: getProductsById
 description: 'Get products by id'
 security:
   - bearerAuth: []
